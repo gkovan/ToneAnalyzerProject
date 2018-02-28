@@ -82,6 +82,11 @@
               </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+	         <groupId>com.ibm.watson.developer_cloud</groupId>
+	         <artifactId>tone-analyzer</artifactId>
+	         <version>4.2.1</version>
+    </dependency>
     </dependencies>
 
     <build>

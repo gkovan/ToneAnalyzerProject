@@ -8,4 +8,5 @@ applications:
   memory: 512M
   random-route: true
 services:
-   tone-analyzer-gk
+   - tone-analyzer-gk
+   - GK-Cloudant-NoSQL-DB

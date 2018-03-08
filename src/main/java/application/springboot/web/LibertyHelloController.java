@@ -1,5 +1,6 @@
 package application.springboot.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,18 +10,37 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 
+import application.springboot.web.services.WatsonToneAnalyzer;
+
 @RestController
 public class LibertyHelloController {
 	
+	
+	@Autowired
+	WatsonToneAnalyzer toneAnalyzer;
+	
 	@RequestMapping("/whatsyourtone")
-	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber) {
-		return phonenumber;
+	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber, @RequestParam(value="sentence", required=true) String sentence) {
+		return phonenumber + sentence + toneAnalyzer.analyzeTone(sentence);
 		
 	}
+	
+//	private String analyzeTone(String sentence) {
+//		final String VERSION_DATE = "2016-05-19";
+//		ToneAnalyzer service = new ToneAnalyzer(VERSION_DATE);
+//		service.setUsernameAndPassword("43233b68-ae7e-4804-b7b5-3302597d1834", "g8a4Lt6g5jrT");
+//
+//		// Call the service and get the tone
+//		ToneOptions toneOptions = new ToneOptions.Builder().html(sentence).build();
+//		ToneAnalysis tone = service.tone(toneOptions).execute();
+//		System.out.println(tone);
+//
+//		return tone.toString();
+//	}
 
 	@RequestMapping("/springbootweb")
 	public String hello() {
-
+	
 		final String VERSION_DATE = "2016-05-19";
 		ToneAnalyzer service = new ToneAnalyzer(VERSION_DATE);
 		service.setUsernameAndPassword("43233b68-ae7e-4804-b7b5-3302597d1834", "g8a4Lt6g5jrT");

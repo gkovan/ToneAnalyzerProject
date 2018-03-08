@@ -1,0 +1,153 @@
+{
+  "sentences_tone": [
+    {
+      "sentence_id": 0,
+      "text": "Sometime horrible but depends what it is sometimes I like it.",
+      "tones": [
+        {
+          "score": 0.606289,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        },
+        {
+          "score": 0.993373,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        },
+        {
+          "score": 0.653099,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 1,
+      "text": "Usually normal sometimes really bad but sometimes really good.",
+      "tones": [
+        {
+          "score": 0.579731,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        },
+        {
+          "score": 0.989123,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        },
+        {
+          "score": 0.955445,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 2,
+      "text": "Some school foods are really good but some are really bad like the blintzes.",
+      "tones": [
+        {
+          "score": 0.955608,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        },
+        {
+          "score": 0.801827,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 3,
+      "text": "Only the chicken and rice is good.",
+      "tones": [
+        {
+          "score": 0.641188,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.560098,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 4,
+      "text": "School food is usually disgusting.",
+      "tones": [
+        {
+          "score": 0.822231,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        }
+      ]
+    },
+    {
+      "sentence_id": 5,
+      "text": "Most foods are bad but a few are good.",
+      "tones": [
+        {
+          "score": 0.550163,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        },
+        {
+          "score": 0.5538,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        }
+      ]
+    },
+    {
+      "sentence_id": 6,
+      "text": "Not so good.",
+      "tones": []
+    },
+    {
+      "sentence_id": 7,
+      "text": "I eat the salad not the lunch.",
+      "tones": []
+    },
+    {
+      "sentence_id": 8,
+      "text": "I don’t like the school food but sometimes it is good.",
+      "tones": [
+        {
+          "score": 0.590261,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.909883,
+          "tone_id": "tentative",
+          "tone_name": "Tentative"
+        }
+      ]
+    },
+    {
+      "sentence_id": 9,
+      "text": "I love the food at lunch.",
+      "tones": [
+        {
+          "score": 0.884303,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        }
+      ]
+    },
+    {
+      "sentence_id": 10,
+      "text": "The food at lunch is so tasty and it makes me happy.",
+      "tones": [
+        {
+          "score": 0.916185,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        }
+      ]
+    }
+  ]
+}

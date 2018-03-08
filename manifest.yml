@@ -10,3 +10,4 @@ applications:
 services:
    - tone-analyzer-gk
    - GK-Cloudant-NoSQL-DB
+   - twilio-sms

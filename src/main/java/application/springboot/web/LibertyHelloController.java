@@ -1,6 +1,8 @@
 package application.springboot.web;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
@@ -9,6 +11,12 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 
 @RestController
 public class LibertyHelloController {
+	
+	@RequestMapping("/whatsyourtone")
+	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber) {
+		return phonenumber;
+		
+	}
 
 	@RequestMapping("/springbootweb")
 	public String hello() {

@@ -44,6 +44,11 @@ public class LibertyHelloController {
 //
 //		return tone.toString();
 //	}
+	
+	@RequestMapping("/test")
+	public String test() {
+		return "TEST";
+	}
 
 	@RequestMapping("/springbootweb")
 	public String hello() {

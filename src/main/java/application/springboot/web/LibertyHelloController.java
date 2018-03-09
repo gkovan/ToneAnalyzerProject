@@ -10,6 +10,7 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 
+import application.springboot.web.services.TwilioSendSMSMessage;
 import application.springboot.web.services.WatsonToneAnalyzer;
 
 @RestController
@@ -19,8 +20,14 @@ public class LibertyHelloController {
 	@Autowired
 	WatsonToneAnalyzer toneAnalyzer;
 	
+	@Autowired
+	TwilioSendSMSMessage sendSMS;
+	
 	@RequestMapping("/whatsyourtone")
 	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber, @RequestParam(value="sentence", required=true) String sentence) {
+		System.out.println(phonenumber);
+		System.out.println(sentence);
+		sendSMS.sendSMSMessage(phonenumber);
 		return phonenumber + sentence + toneAnalyzer.analyzeTone(sentence);
 		
 	}

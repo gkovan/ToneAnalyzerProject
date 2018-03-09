@@ -1,0 +1,7 @@
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: ai
+    password: ai

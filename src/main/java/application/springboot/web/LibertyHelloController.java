@@ -27,7 +27,7 @@ public class LibertyHelloController {
 	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber, @RequestParam(value="sentence", required=true) String sentence) {
 		System.out.println(phonenumber);
 		System.out.println(sentence);
-		sendSMS.sendSMSMessage(phonenumber);
+//		sendSMS.sendSMSMessage(phonenumber);
 		return phonenumber + sentence + toneAnalyzer.analyzeTone(sentence);
 		
 	}

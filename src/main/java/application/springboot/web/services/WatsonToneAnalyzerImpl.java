@@ -3,11 +3,16 @@
  */
 package application.springboot.web.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.DocumentAnalysis;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.SentenceAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneScore;
 
 /**
  * @author gkovan@us.ibm.com
@@ -15,6 +20,11 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
  */
 @Service
 public class WatsonToneAnalyzerImpl implements WatsonToneAnalyzer {
+	
+	private String primaryToneName = "";
+	private Double primaryToneScore = 0.0;
+	private List<ToneScore> toneScoreList = null;
+	
 
 	/* (non-Javadoc)
 	 * @see application.springboot.web.services.WatsonToneAnalyzerInterface#analyzeTone(java.lang.String)
@@ -38,11 +48,30 @@ public class WatsonToneAnalyzerImpl implements WatsonToneAnalyzer {
 //				+ "business outcomes. Economy has nothing to do with it.";
 
 		// Call the service and get the tone
-		ToneOptions toneOptions = new ToneOptions.Builder().html(sentence).build();
+//works		ToneOptions toneOptions = new ToneOptions.Builder().html(sentence).build();
+		ToneOptions toneOptions = new ToneOptions.Builder().sentences(false).text(sentence).build();
+
 		ToneAnalysis tone = service.tone(toneOptions).execute();
 		System.out.println(tone);
-
+        identifyPrimaryTone(tone);
 		return tone.toString();
+	}
+	
+	private void identifyPrimaryTone(ToneAnalysis tone) {
+		DocumentAnalysis da = tone.getDocumentTone();	
+
+		toneScoreList = da.getToneCategories().get(0).getTones();
+		System.out.println("Size of ToneScore List is: " + toneScoreList.size());
+		
+		
+		for (ToneScore ts : toneScoreList ) {
+			System.out.println("GGG");
+			System.out.println(ts.toString());
+			if (ts.getScore() > primaryToneScore)  {
+			   primaryToneScore = ts.getScore();
+			   primaryToneName = ts.getToneName();
+			}
+		}
 	}
 
 }

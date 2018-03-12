@@ -35,7 +35,7 @@ public class TwilioSendSMSMessageImpl implements TwilioSendSMSMessage {
 		// first phone mumber receives the message, the second number is the sender.
 		Message message = Message.creator(new PhoneNumber("+1" + toPhoneNumber),
 		        new PhoneNumber("+12013471339"), 
-		        "This is the ship that made the Kessel Run in fourteen parsecs?").create();
+		        "Hi Eliana. I can now send a text message.").create();
 		return message.getSid();
 	}
 

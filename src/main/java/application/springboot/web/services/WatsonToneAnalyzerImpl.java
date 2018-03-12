@@ -14,6 +14,8 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneScore;
 
+import application.springboot.web.domain.AppData;
+
 /**
  * @author gkovan@us.ibm.com
  *
@@ -30,8 +32,9 @@ public class WatsonToneAnalyzerImpl implements WatsonToneAnalyzer {
 	 * @see application.springboot.web.services.WatsonToneAnalyzerInterface#analyzeTone(java.lang.String)
 	 */
 	@Override
-	public String analyzeTone(String sentence) {
+	public String analyzeTone(AppData appData) {
 		
+		String sentence = appData.getSentence();
 		final String VERSION_DATE = "2016-05-19";
 		ToneAnalyzer service = new ToneAnalyzer(VERSION_DATE);
 		service.setUsernameAndPassword("43233b68-ae7e-4804-b7b5-3302597d1834", "g8a4Lt6g5jrT");
@@ -53,14 +56,17 @@ public class WatsonToneAnalyzerImpl implements WatsonToneAnalyzer {
 
 		ToneAnalysis tone = service.tone(toneOptions).execute();
 		System.out.println(tone);
-        identifyPrimaryTone(tone);
+		appData.setToneAnalysis(tone);
+        identifyPrimaryTone(appData);
 		return tone.toString();
 	}
 	
-	private void identifyPrimaryTone(ToneAnalysis tone) {
+	private void identifyPrimaryTone(AppData appData) {
+		ToneAnalysis tone = appData.getToneAnalysis();
 		DocumentAnalysis da = tone.getDocumentTone();	
 
 		toneScoreList = da.getToneCategories().get(0).getTones();
+		appData.setToneScoreList(toneScoreList);
 		System.out.println("Size of ToneScore List is: " + toneScoreList.size());
 		
 		
@@ -72,6 +78,8 @@ public class WatsonToneAnalyzerImpl implements WatsonToneAnalyzer {
 			   primaryToneName = ts.getToneName();
 			}
 		}
+		appData.setPrimaryToneName(primaryToneName);
+		appData.setPrimaryToneScore(primaryToneScore);
 	}
 
 }

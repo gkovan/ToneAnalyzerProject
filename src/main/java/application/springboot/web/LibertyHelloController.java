@@ -10,6 +10,7 @@ import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 
+import application.springboot.web.domain.AppData;
 import application.springboot.web.services.TwilioSendSMSMessage;
 import application.springboot.web.services.WatsonToneAnalyzer;
 
@@ -27,23 +28,17 @@ public class LibertyHelloController {
 	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber, @RequestParam(value="sentence", required=true) String sentence) {
 		System.out.println(phonenumber);
 		System.out.println(sentence);
-//		sendSMS.sendSMSMessage(phonenumber);
-		return phonenumber + sentence + toneAnalyzer.analyzeTone(sentence);
+
+		AppData appData = new AppData();
+		appData.setPhonenumber(phonenumber);
+		appData.setSentence(sentence);
+		toneAnalyzer.analyzeTone(appData);
+		sendSMS.sendSMSMessage(phonenumber);
+		return appData.toString();
+		//return phonenumber + sentence + toneAnalyzer.analyzeTone(sentence);
 		
 	}
 	
-//	private String analyzeTone(String sentence) {
-//		final String VERSION_DATE = "2016-05-19";
-//		ToneAnalyzer service = new ToneAnalyzer(VERSION_DATE);
-//		service.setUsernameAndPassword("43233b68-ae7e-4804-b7b5-3302597d1834", "g8a4Lt6g5jrT");
-//
-//		// Call the service and get the tone
-//		ToneOptions toneOptions = new ToneOptions.Builder().html(sentence).build();
-//		ToneAnalysis tone = service.tone(toneOptions).execute();
-//		System.out.println(tone);
-//
-//		return tone.toString();
-//	}
 	
 	@RequestMapping("/test")
 	public String test() {

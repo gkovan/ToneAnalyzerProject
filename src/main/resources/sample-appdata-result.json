@@ -1,0 +1,125 @@
+{
+	"phonenumber": "3473928489",
+	"sentence": "Hello I am happy today",
+	"toneAnalysis": {
+		"documentTone": {
+			"tones": null,
+			"toneCategories": [
+				{
+					"tones": [
+						{
+							"score": 0.011028,
+							"toneId": "anger",
+							"toneName": "Anger"
+						},
+						{
+							"score": 0.003578,
+							"toneId": "disgust",
+							"toneName": "Disgust"
+						},
+						{
+							"score": 0.030026,
+							"toneId": "fear",
+							"toneName": "Fear"
+						},
+						{
+							"score": 0.913456,
+							"toneId": "joy",
+							"toneName": "Joy"
+						},
+						{
+							"score": 0.024971,
+							"toneId": "sadness",
+							"toneName": "Sadness"
+						}
+					],
+					"categoryId": "emotion_tone",
+					"categoryName": "Emotion Tone"
+				},
+				{
+					"tones": [
+						{
+							"score": 0.0,
+							"toneId": "analytical",
+							"toneName": "Analytical"
+						},
+						{
+							"score": 0.0,
+							"toneId": "confident",
+							"toneName": "Confident"
+						},
+						{
+							"score": 0.0,
+							"toneId": "tentative",
+							"toneName": "Tentative"
+						}
+					],
+					"categoryId": "language_tone",
+					"categoryName": "Language Tone"
+				},
+				{
+					"tones": [
+						{
+							"score": 0.026379,
+							"toneId": "openness_big5",
+							"toneName": "Openness"
+						},
+						{
+							"score": 0.27251,
+							"toneId": "conscientiousness_big5",
+							"toneName": "Conscientiousness"
+						},
+						{
+							"score": 0.457652,
+							"toneId": "extraversion_big5",
+							"toneName": "Extraversion"
+						},
+						{
+							"score": 0.627742,
+							"toneId": "agreeableness_big5",
+							"toneName": "Agreeableness"
+						},
+						{
+							"score": 0.152862,
+							"toneId": "emotional_range_big5",
+							"toneName": "Emotional Range"
+						}
+					],
+					"categoryId": "social_tone",
+					"categoryName": "Social Tone"
+				}
+			],
+			"warning": null
+		},
+		"sentencesTone": null
+	},
+	"toneScoreList": [
+		{
+			"score": 0.011028,
+			"toneId": "anger",
+			"toneName": "Anger"
+		},
+		{
+			"score": 0.003578,
+			"toneId": "disgust",
+			"toneName": "Disgust"
+		},
+		{
+			"score": 0.030026,
+			"toneId": "fear",
+			"toneName": "Fear"
+		},
+		{
+			"score": 0.913456,
+			"toneId": "joy",
+			"toneName": "Joy"
+		},
+		{
+			"score": 0.024971,
+			"toneId": "sadness",
+			"toneName": "Sadness"
+		}
+	],
+	"primaryToneName": "Joy",
+	"primaryToneScore": 0.913456
+}

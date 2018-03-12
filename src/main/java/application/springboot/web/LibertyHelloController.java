@@ -25,7 +25,7 @@ public class LibertyHelloController {
 	TwilioSendSMSMessage sendSMS;
 	
 	@RequestMapping("/whatsyourtone")
-	public String elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber, @RequestParam(value="sentence", required=true) String sentence) {
+	public AppData elianasToneAnalyzer(@RequestParam(value="phonenumber", required=true) String phonenumber, @RequestParam(value="sentence", required=true) String sentence) {
 		System.out.println(phonenumber);
 		System.out.println(sentence);
 
@@ -34,7 +34,7 @@ public class LibertyHelloController {
 		appData.setSentence(sentence);
 		toneAnalyzer.analyzeTone(appData);
 		sendSMS.sendSMSMessage(phonenumber);
-		return appData.toString();
+		return appData;
 		//return phonenumber + sentence + toneAnalyzer.analyzeTone(sentence);
 		
 	}
